@@ -1,14 +1,14 @@
-import { GewinnbarerHase } from "./gewinnbarer-hase";
+import { Prize } from "./gewinnbarer-hase";
 //     _    _                          _                  _           _   _
 //    / \  | |__  ___ _ __   ___  __ _| | _____ _ __   __| | ___ _ __| | | | __ _ ___  ___
 //   / _ \ | '_ \/ __| '_ \ / _ \/ _` | |/ / _ \ '_ \ / _` |/ _ \ '__| |_| |/ _` / __|/ _ \
 //  / ___ \| |_) \__ \ | | |  __/ (_| |   <  __/ | | | (_| |  __/ |  |  _  | (_| \__ \  __/
 // /_/   \_\_.__/|___/_| |_|\___|\__,_|_|\_\___|_| |_|\__,_|\___|_|  |_| |_|\__,_|___/\___|
-export class AbsneakenderHase {
+export class RNGClass {
   constructor(
-    private brokieMokies: string[],
-    private gewinnbareHasen: GewinnbarerHase[],
-  ) {}
+    private Contenstant: string[],
+    private prizes: Prize[],
+  ) { }
 
   //  _____________________________
   // < Finger weg von meinem Code! >
@@ -29,26 +29,26 @@ export class AbsneakenderHase {
   //              ///.----..>        \             _ -~             `.  ^-`  ^-_
   //                ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
   //
-  public absneaken(): Map<string, string> {
+  public RNG(): Map<string, string> {
     const richieMichies = new Map<string, string>();
     const mokieBrokies = new Array<string>();
-    while (this.brokieMokies.length > 0) {
+    while (this.Contenstant.length > 0) {
       const zufälligerHase = Math.random();
       const rangierterHase = Math.floor(
-        zufälligerHase * this.brokieMokies.length,
+        zufälligerHase * this.Contenstant.length,
       );
-      const ausgesuchterHase = this.brokieMokies[rangierterHase];
+      const ausgesuchterHase = this.Contenstant[rangierterHase];
       mokieBrokies.push(ausgesuchterHase); // Ich push die Brokies auf die Mokies, yeah!
-      this.brokieMokies.pop();
+      this.Contenstant.pop();
     }
-    while (this.gewinnbareHasen.length > 0 && mokieBrokies.length > 0) {
-      const gewonnenerHase = this.gewinnbareHasen[0];
+    while (this.prizes.length > 0 && mokieBrokies.length > 0) { // Fehler Hier, nacher Fixen
+      const gewonnenerHase = this.prizes[0];
       const gewinnenderHase = mokieBrokies.shift();
       richieMichies.set(gewinnenderHase, gewonnenerHase.hase);
       if (gewonnenerHase.zahlenmässigerHase > 0) {
-        this.gewinnbareHasen.shift();
+        this.prizes.shift();
       } else {
-        this.gewinnbareHasen[0].zahlenmässigerHase--;
+        this.prizes[0].zahlenmässigerHase--;
       }
     }
     return richieMichies;

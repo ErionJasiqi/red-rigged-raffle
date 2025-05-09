@@ -4,8 +4,8 @@
 //   \ V /  __/ |  | | (_) \__ \ |_| | | | | (_| |
 //    \_/ \___|_|  |_|\___/|___/\__,_|_| |_|\__, |
 
-import { AbsneakenderHase } from "./absneakender-hase.js";
-import { GewinnbarerHase } from "./gewinnbarer-hase.js";
+import { RNGClass } from "./absneakender-hase.js";
+import { Prize } from "./gewinnbarer-hase.js";
 
 //
 export class Verlosung {
@@ -67,17 +67,17 @@ export class Verlosung {
       "@LeonMachere",
     ];
     const fiktivePreise = [
-      new GewinnbarerHase("iPhone 16 Pro", 1),
-      new GewinnbarerHase("Trip nach Dubi", 1),
-      new GewinnbarerHase("Stepper nach Isti", 1),
-      new GewinnbarerHase("10 kg Haribo", 2),
-      new GewinnbarerHase("PlayStation 5 Slim", 3),
-      new GewinnbarerHase("gebrauchte Sneaker", 5),
+      new Prize("iPhone 16 Pro", 1),
+      new Prize("Trip nach Dubi", 1),
+      new Prize("Stepper nach Isti", 1),
+      new Prize("10 kg Haribo", 2),
+      new Prize("PlayStation 5 Slim", 3),
+      new Prize("gebrauchte Sneaker", 5),
     ];
-    const luckyMuckies = new AbsneakenderHase(
+    const luckyMuckies = new RNGClass(
       redArmy,
       fiktivePreise,
-    ).absneaken();
+    ).RNG();
     for (const [opfer, gewonnenerHase] of luckyMuckies.entries()) {
       console.log(`${opfer} gewinnt ${gewonnenerHase}`);
     }
